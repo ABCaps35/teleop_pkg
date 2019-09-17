@@ -12,6 +12,7 @@ void calcNewVel(){
 int main(int argc, char** argv)
 {
 	ros::init(argc, argv, "publisher_node");
+
 	// Process command line parameter looking for a -n string name
 	// and should be placed after the ros::init() invocation.
 	// rosrun <package_name> <executable_name> -n <new_name>
@@ -25,12 +26,14 @@ int main(int argc, char** argv)
 	      break;
 	    default:
 	      printf("The -%c is not a recognized parameter\n", opt);
+	      topic_name='des_vel';
 	      break; 
 	  }
 	}
+	
 	ros::NodeHandle n;
-	ros::Publisher p = n.advertise<geometry_msgs::Twist>("topic_name",1000);
-	ros::Subscriber s = n.subscribe("topic_name",1000,calcNewVel);
+	ros::Publisher p = n.advertise<geometry_msgs::Twist>('cmd_vel',1000);
+	ros::Subscriber s = n.subscribe(topic_name,1000,calcNewVel);
 	ros::Rate loop_rate(1);
 	int newVel=0;
 	while(ros::ok())
