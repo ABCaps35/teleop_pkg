@@ -14,7 +14,7 @@ geometry_msgs::Twist desVel;
 geometry_msgs::Twist newTwist;
 std::vector<float> laserRanges;
 float rangeMin;
-const float rangeThreshold = 0.25;
+const float rangeThreshold = 0.5;
 
 void laserFeedback( const sensor_msgs :: LaserScan :: ConstPtr & msg){
 	laserRanges = msg->ranges;
