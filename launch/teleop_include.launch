@@ -1,0 +1,7 @@
+<launch>
+	<arg name="n" default="des_vel"/>
+	<arg name="ns" default="robot0"/>
+	<node type="teleop_node" pkg="teleop_pkg" name="teleop_node" output="screen" args="-n $(arg n)">
+		<env name="ROS_NAMESPACE" value="$(arg ns)" />
+	</node>
+</launch>

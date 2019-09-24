@@ -96,9 +96,9 @@ int main(int argc, char** argv)
 	}
 	ROS_INFO("%s", topic_name);
 	ros::NodeHandle n;
-	p = n.advertise<geometry_msgs::Twist>("robot0/cmd_vel",1000);
+	p = n.advertise<geometry_msgs::Twist>("cmd_vel",1000);
 	ros::Subscriber s = n.subscribe(topic_name,1000,calcNewVel);
-	ros::Subscriber lidarSub = n.subscribe("robot0/laser_1",1000,laserFeedback);
+	ros::Subscriber lidarSub = n.subscribe("laser_1",1000,laserFeedback);
 	ros::Rate loop_rate(1);
 	while(ros::ok())
 	{

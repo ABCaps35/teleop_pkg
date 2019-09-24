@@ -1,0 +1,4 @@
+<launch>
+	<include file="$(find teleop_pkg)/launch/teleop_include.launch" />
+	<include file="$(find stdr_launchers)/launch/server_with_map_and_gui.launch" />
+</launch>
